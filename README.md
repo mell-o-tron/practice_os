@@ -1,3 +1,11 @@
+# KWSL Workshop
+
+*If you're here for the OS Development Workshop by KWSL:*
+
+**!!!! Install the GCC cross compiler BEFORE the workshop (it can take > 30 minutes) !!!!** 
+
+See "Building" section.
+
 # PracticeOS
 
 This is a *practice* version of the MellOS kernel. Its disk drivers and file system code are substituted by stubs. This way you can write your own without caring too much about the infrastructure.
