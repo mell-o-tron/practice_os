@@ -100,25 +100,6 @@ PT_FLAGS first_page_table_flags = PT_PRESENT | PT_READWRITE;
 
 extern int top_of_stack ();
 
-void test_task(){
-    kprint_col("test task print\n", DEFAULT_COLOUR);
-
-    return;
-}
-
-void task_1(){
-    kprint("Hello there!\n");
-    for (;;){
-        try_to_terminate();
-    }
-}
-
-void task_2(){
-    kprint("BOIA DE\n");
-    for (;;){
-        try_to_relinquish();
-    }
-}
 
 extern void main(){
     
@@ -169,13 +150,6 @@ extern void main(){
     
     load_shell();
     
-    // init_text_editor("test_file");
-
-    /*
-    schedule_process(task_1);
-    schedule_process(task_2);
-
-    begin_execution();*/
 
 
     return;
