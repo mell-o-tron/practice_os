@@ -27,7 +27,6 @@ If you're on Windows, you may use a Linux virtual machine as your development en
 The kernel code is in `kernel/kernel.c`. It consists of the `main` function. It begins with some bureaucracy:
 
 ```c
-
     // identity-maps 0x0 to 4MB (i.e. 0x400000 - 1)
     init_paging(page_directory, first_page_table);
 
@@ -57,6 +56,13 @@ Which sets up paging, interrupts, memory allocation, the timer and keyboard driv
 
 ## Useful functions and headers
 
-- The header `utils/typedefs.h` contains some useful type definitions, including `uint32_t` and the like.
-- Use the `kprint` function (situated in `drivers/vga_text.h`) to print strings.
-- Use the `tostring_inplace` function to convert an integer to a string in an arbitrary basis. Include this from `utils/conversions.h`
+| Header        | Function      | Description      |
+| ------------- | ------------- | ------------- |
+| `utils/typedefs.h` | - | Contains useful type defs, e.g. `uint32_t` |
+| `misc/colours.h` | - | Defines some colours |
+| `drivers/vga_text.h` |`void kprint(const char* s);` | Print to screen. |
+|`drivers/vga_text.h`|`void clear_screen_col (Colour col);`| Clears the screen
+|`drivers/vga_text.h`|`void kprint_col(const char* s, Colour col);`|Prints in colour
+| `utils/conversions.h` | `const char* tostring_inplace(int n, int base);` | int to string in arbitrary base
+| `memory/dynamic_mem.h` | `void * kmalloc (int size);` | Allocates `size` bytes to memory
+|`memory/dynamic_mem.h`|`int kfree(void* loc, int size);`| Frees `size` bytes at location `loc`
